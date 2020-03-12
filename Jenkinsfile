@@ -1,17 +1,18 @@
 pipeline {
     agent any
-    environment {
-        COUNT = 0
-    }
     stages {
         stage('1') {
             when { branch 'master' }
             steps{
                 script {
-                    echo env.COUNT
-                    env.COUNT = "777"
-                    echo env.COUNT
-                    bat 'set'
+                    bat '''IF NOT EXIST count.txt (echo 0 > count.txt)
+                            set /p OLD=<count.txt
+                            echo %OLD%'''
+                    def cmd = 'echo %OLD%'
+                    stdout = bat(returnStdout:true , script: cmd).trim()
+                    result = stdout.readLines().drop(1).join(" ") 
+                    echo result
+                    echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
                     } else {
