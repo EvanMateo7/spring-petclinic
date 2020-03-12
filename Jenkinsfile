@@ -9,7 +9,7 @@ pipeline {
             steps{
                 script {
                     echo env.COUNT
-                    env.COUNT = 777
+                    env.COUNT = "777"
                     echo env.COUNT
                     bat 'set'
                     if (env.BRANCH_NAME == 'master') {
