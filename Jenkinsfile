@@ -5,13 +5,7 @@ pipeline {
             when { branch 'master' }
             steps{
                 script {
-                    bat """IF NOT EXIST count.txt (echo 0 > count.txt)
-                            set /p OLD=<count.txt
-                            echo %OLD%
-                            set /a NEW=OLD+1
-                            echo %NEW%"""
-                    stdout = bat(returnStdout: true, script: 'cmd /c "echo %NEW%"')
-                    echo stdout
+                    bat 'start C:\Users\Evan\Desktop\script.bat'
                     echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
