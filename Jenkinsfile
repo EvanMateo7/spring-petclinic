@@ -6,7 +6,7 @@ pipeline {
             if (env.BRANCH_NAME == 'master') {
                 echo 'master'
             } else {
-                echo 'Not aster'
+                echo 'Not master'
             }
         }
         stage('2') {
@@ -14,7 +14,7 @@ pipeline {
             if (env.BRANCH_NAME == 'master') {
                 echo 'master'
             } else {
-                echo 'Not aster'
+                echo 'Not master'
             }
         }
     }
