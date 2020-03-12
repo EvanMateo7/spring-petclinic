@@ -8,8 +8,7 @@ pipeline {
                     bat '''IF NOT EXIST count.txt (echo 0 > count.txt)
                             set /p OLD=<count.txt
                             echo %OLD%'''
-                    def cmd = '''echo %OLD%'''
-                    def count = bat(script: cmd, returnStdout: true)
+                    def count = bat(script: '@echo %OLD%', returnStdout: true)
                     echo "$count"
                     echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
