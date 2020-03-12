@@ -5,7 +5,7 @@ pipeline {
             when { branch 'master' }
             steps{
                 script {
-                    bat 'start C:\Users\Evan\Desktop\script.bat'
+                    bat 'start C:\\Users\\Evan\\Desktop\\script.bat'
                     echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
