@@ -6,7 +6,7 @@ pipeline {
             steps{
                 script {
                     if (env.BRANCH_NAME == 'master') {
-                        echo 'master'
+                        echo 'mkdir testestest'
                     } else {
                         echo 'Not master'
                     }
