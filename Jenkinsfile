@@ -8,8 +8,8 @@ pipeline {
                     bat '''IF NOT EXIST count.txt (echo 0 > count.txt)
                             set /p OLD=<count.txt
                             @echo off'''
-
-                    stdout = bat(returnStdout:true , script: '@echo %OLD%')
+                    bat 'echo %OLD%'
+                    stdout = bat(returnStdout:true , script: 'echo %OLD%')
                     println stdout
                     echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
