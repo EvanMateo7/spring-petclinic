@@ -5,6 +5,7 @@ pipeline {
             when { branch 'master' }
             steps{
                 script {
+                    bat 'set NEW=999'
                     echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
