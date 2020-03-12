@@ -6,8 +6,8 @@ pipeline {
             steps{
                 script {
                     bat '''IF NOT EXIST count.txt (echo 0 > count.txt)
-                            set /p OLD=<count.txt'''
-                    bat '''echo %OLD%'''
+                            set /p OLD=<count.txt
+                            echo %OLD%'''
                     stdout = bat(returnStdout:true , script: '@echo %OLD%').trim()
                     println stdout
                     echo bat(returnStdout: true, script: 'set')
