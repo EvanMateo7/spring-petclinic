@@ -5,14 +5,7 @@ pipeline {
             when { branch 'master' }
             steps{
                 script {
-                    bat '''IF NOT EXIST count.txt (echo 0 > count.txt)
-                            set /p OLD=<count.txt
-                            echo %OLD%'''
-                    def cmd = '''echo off
-                                echo %OLD%'''
-                    def count = bat(script: cmd, returnStdout: true).trim()
-                    echo count
-                    echo bat(returnStdout: true, script: 'set')
+                    echo env.COUNT
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
                     } else {
