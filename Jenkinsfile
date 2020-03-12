@@ -10,8 +10,8 @@ pipeline {
                             echo %OLD%
                             set /a NEW=OLD+1
                             echo %NEW%"""
-                    stdout = bat(returnStdout:true , script: '@echo %OLD%').trim()
-                    println stdout
+                    stdout = bat(returnStdout: true, script: 'set')
+                    echo stdout
                     echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
