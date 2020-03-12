@@ -6,12 +6,10 @@ pipeline {
             steps{
                 script {
                     bat '''IF NOT EXIST count.txt (echo 0 > count.txt)
-                            set /p OLD=<count.txt
-                            echo %OLD%'''
+                            set /p OLD=<count.txt'''
                     def cmd = 'echo %OLD%'
                     stdout = bat(returnStdout:true , script: cmd).trim()
-                    result = stdout.readLines().drop(1).join(" ") 
-                    echo result
+                    echo stdout
                     echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
