@@ -6,7 +6,7 @@ pipeline {
             steps{
                 script {
                     echo env.COUNT
-                    System.setProperty("COUNT", 69)
+                    bat 'set COUNT=123'
                     echo env.COUNT
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
