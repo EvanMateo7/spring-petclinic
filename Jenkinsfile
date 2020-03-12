@@ -9,6 +9,7 @@ pipeline {
                             set /p OLD=<count.txt
                             echo %OLD%'''
                     def count = bat(script: 'echo %OLD%', returnStdout: true)
+                    echo "Count: $count"
                     echo bat(returnStdout: true, script: 'set')
                     if (env.BRANCH_NAME == 'master') {
                         bat 'mkdir testestest'
